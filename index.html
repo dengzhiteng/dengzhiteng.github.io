@@ -8,14 +8,13 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>前端小哥</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端小哥">
+  <meta name="description" content="一个好奇的人">
 <meta property="og:type" content="website">
 <meta property="og:title" content="前端小哥">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="前端小哥">
-<meta property="og:description" content="前端小哥">
+<meta property="og:description" content="一个好奇的人">
 <meta property="og:locale" content="en_US">
-<meta property="article:tag" content="前端小哥">
 <meta name="twitter:card" content="summary">
   
   
@@ -155,9 +154,24 @@
     <article id="post-1px解决方案 - 副本 (2)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/25/1px%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%20-%20%E5%89%AF%E6%9C%AC%20(2)/">1px 解决方案1</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/25/1px%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%20-%20%E5%89%AF%E6%9C%AC%20(2)/" class="archive-article-date">
+  	<time datetime="2020-12-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-25</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1px-解决方案1"><a href="#1px-解决方案1" class="headerlink" title="1px 解决方案1"></a>1px 解决方案1</h1><ol>
+        <ol>
 <li><p>在移动端中，如果给元素设置一个像素的边框的话，那么在手机上看起来是会比一个像素粗的。<br>解决方法：使用伪类元素模拟边框，使用transform缩放</p>
 </li>
 <li><p>对于老项目伪类+transform<br>原理是把原先元素的 border 去掉，然后利用 :before 或者 :after 重做 border ，并 transform 的 scale 缩小一半，原先的元素相对定位，新做的 border 绝对定位。<br>单条border样式设置：<br>优点：所有场景都能满足，支持圆角(伪类和本体类都需要加border-radius)<br>缺点：对于已经使用伪类的元素(例如clearfix)，可能需要多层嵌套</p>
@@ -213,73 +227,27 @@
 
 
   
-    <article id="post-1px解决方案 - 副本 - 副本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1px-解决方案2"><a href="#1px-解决方案2" class="headerlink" title="1px 解决方案2"></a>1px 解决方案2</h1><ol>
-<li><p>在移动端中，如果给元素设置一个像素的边框的话，那么在手机上看起来是会比一个像素粗的。<br>解决方法：使用伪类元素模拟边框，使用transform缩放</p>
-</li>
-<li><p>对于老项目伪类+transform<br>原理是把原先元素的 border 去掉，然后利用 :before 或者 :after 重做 border ，并 transform 的 scale 缩小一半，原先的元素相对定位，新做的 border 绝对定位。<br>单条border样式设置：<br>优点：所有场景都能满足，支持圆角(伪类和本体类都需要加border-radius)<br>缺点：对于已经使用伪类的元素(例如clearfix)，可能需要多层嵌套</p>
-</li>
-<li><p>viewport + rem 实现<br>这种兼容方案相对比较完美，适合新的项目，老的项目修改成本过大。</p>
-</li>
-</ol>
-<p>优点：所有场景都能满足，一套代码，可以兼容基本所有布局<br>缺点：老项目修改代价过大，只适用于新项目</p>
-<ol start="4">
-<li>使用box-shadow模拟边框,利用css 对阴影处理的方式实现0.5px的效果<br>样式设置：</li>
-</ol>
-<p>优点：代码量少，可以满足所有场景<br>缺点：边框有阴影，颜色变浅</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border-1px</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.border-1px</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="attribute">top</span>: -<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: -<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: -<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">right</span>: -<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>);</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#666</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-min-device-pixel-radio:</span> <span class="number">3</span>), (<span class="attribute">min-device-pixel-radio:</span> <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="selector-tag">border-1px</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">        <span class="attribute">-webkit-transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.33333333</span>);</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.33333333</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-min-device-pixel-radio:</span> <span class="number">2</span>), (<span class="attribute">min-device-pixel-radio:</span> <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="selector-tag">border-1px</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">        <span class="attribute">-webkit-transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.5</span>);</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/25/1px%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-1px解决方案 - 副本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/25/1px%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%20-%20%E5%89%AF%E6%9C%AC/">1px 解决方案3</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/25/1px%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%20-%20%E5%89%AF%E6%9C%AC/" class="archive-article-date">
+  	<time datetime="2020-12-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-25</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1px-解决方案3"><a href="#1px-解决方案3" class="headerlink" title="1px 解决方案3"></a>1px 解决方案3</h1><ol>
+        <ol>
 <li><p>在移动端中，如果给元素设置一个像素的边框的话，那么在手机上看起来是会比一个像素粗的。<br>解决方法：使用伪类元素模拟边框，使用transform缩放</p>
 </li>
 <li><p>对于老项目伪类+transform<br>原理是把原先元素的 border 去掉，然后利用 :before 或者 :after 重做 border ，并 transform 的 scale 缩小一半，原先的元素相对定位，新做的 border 绝对定位。<br>单条border样式设置：<br>优点：所有场景都能满足，支持圆角(伪类和本体类都需要加border-radius)<br>缺点：对于已经使用伪类的元素(例如clearfix)，可能需要多层嵌套</p>
@@ -335,12 +303,103 @@
 
 
   
-    <article id="post-1px解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-1px解决方案 - 副本 - 副本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/25/1px%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/">1px 解决方案2</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/25/1px%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/" class="archive-article-date">
+  	<time datetime="2020-12-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-25</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1px-解决方案4"><a href="#1px-解决方案4" class="headerlink" title="1px 解决方案4"></a>1px 解决方案4</h1><ol>
+        <ol>
+<li><p>在移动端中，如果给元素设置一个像素的边框的话，那么在手机上看起来是会比一个像素粗的。<br>解决方法：使用伪类元素模拟边框，使用transform缩放</p>
+</li>
+<li><p>对于老项目伪类+transform<br>原理是把原先元素的 border 去掉，然后利用 :before 或者 :after 重做 border ，并 transform 的 scale 缩小一半，原先的元素相对定位，新做的 border 绝对定位。<br>单条border样式设置：<br>优点：所有场景都能满足，支持圆角(伪类和本体类都需要加border-radius)<br>缺点：对于已经使用伪类的元素(例如clearfix)，可能需要多层嵌套</p>
+</li>
+<li><p>viewport + rem 实现<br>这种兼容方案相对比较完美，适合新的项目，老的项目修改成本过大。</p>
+</li>
+</ol>
+<p>优点：所有场景都能满足，一套代码，可以兼容基本所有布局<br>缺点：老项目修改代价过大，只适用于新项目</p>
+<ol start="4">
+<li>使用box-shadow模拟边框,利用css 对阴影处理的方式实现0.5px的效果<br>样式设置：</li>
+</ol>
+<p>优点：代码量少，可以满足所有场景<br>缺点：边框有阴影，颜色变浅</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border-1px</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.border-1px</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="attribute">top</span>: -<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: -<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: -<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">right</span>: -<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>);</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#666</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-min-device-pixel-radio:</span> <span class="number">3</span>), (<span class="attribute">min-device-pixel-radio:</span> <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="selector-tag">border-1px</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">        <span class="attribute">-webkit-transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.33333333</span>);</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.33333333</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-min-device-pixel-radio:</span> <span class="number">2</span>), (<span class="attribute">min-device-pixel-radio:</span> <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="selector-tag">border-1px</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">        <span class="attribute">-webkit-transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.5</span>);</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/25/1px%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%20-%20%E5%89%AF%E6%9C%AC%20-%20%E5%89%AF%E6%9C%AC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-1px解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/25/1px%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">1px 解决方案4</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/25/1px%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
+  	<time datetime="2020-12-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
 <li><p>在移动端中，如果给元素设置一个像素的边框的话，那么在手机上看起来是会比一个像素粗的。<br>解决方法：使用伪类元素模拟边框，使用transform缩放</p>
 </li>
 <li><p>对于老项目伪类+transform<br>原理是把原先元素的 border 去掉，然后利用 :before 或者 :after 重做 border ，并 transform 的 scale 缩小一半，原先的元素相对定位，新做的 border 绝对定位。<br>单条border样式设置：<br>优点：所有场景都能满足，支持圆角(伪类和本体类都需要加border-radius)<br>缺点：对于已经使用伪类的元素(例如clearfix)，可能需要多层嵌套</p>
