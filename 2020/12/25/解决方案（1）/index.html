@@ -16,7 +16,7 @@
 <meta property="og:description" content="全文图文较多，请在WIFI 下阅读，土豪随意">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-12-25T08:10:28.966Z">
+<meta property="article:modified_time" content="2020-12-25T09:00:25.478Z">
 <meta property="article:author" content="前端小哥">
 <meta property="article:tag" content="前端基础">
 <meta name="twitter:card" content="summary">
@@ -173,18 +173,19 @@
         
       </header>
     
+
     <div class="article-entry" itemprop="articleBody">
       
         <p>全文图文较多，请在WIFI 下阅读，土豪随意</p>
 <a id="more"></a>
 
-<ol>
+<h2 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h2><ol>
 <li>在移动端中，如果给元素设置一个像素的边框的话，那么在手机上看起来是会比一个像素粗的。<br> 解决方法：使用伪类元素模拟边框，使用transform缩放</li>
 <li>对于老项目伪类+transform<br> 原理是把原先元素的 border 去掉，然后利用 :before 或者 :after 重做 border ，并 transform 的 scale 缩小一半，原先的元素相对定位，新做的 border 绝对定位。<br> 单条border样式设置：<br> 优点：所有场景都能满足，支持圆角(伪类和本体类都需要加border-radius)<br> 缺点：对于已经使用伪类的元素(例如clearfix)，可能需要多层嵌套</li>
 <li>viewport + rem 实现<br> 这种兼容方案相对比较完美，适合新的项目，老的项目修改成本过大。</li>
 </ol>
 <p>优点：所有场景都能满足，一套代码，可以兼容基本所有布局<br>缺点：老项目修改代价过大，只适用于新项目</p>
-<ol start="4">
+<h2 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h2><ol>
 <li>使用box-shadow模拟边框,利用css 对阴影处理的方式实现0.5px的效果<br>样式设置：</li>
 </ol>
 <p>优点：代码量少，可以满足所有场景<br>缺点：边框有阴影，颜色变浅</p>
@@ -305,7 +306,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80"><span class="toc-number">1.</span> <span class="toc-text">方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C"><span class="toc-number">2.</span> <span class="toc-text">方案二</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -326,6 +327,34 @@
 
   
 
+
+        <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80"><span class="toc-number">1.</span> <span class="toc-text">方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C"><span class="toc-number">2.</span> <span class="toc-text">方案二</span></a></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
+             
+        <!-- 目录内容结束 -->
 
           </div>
         </div>
